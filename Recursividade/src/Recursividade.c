@@ -18,6 +18,7 @@ int fatorialRecursivoCauda(int n, int soma);
 
 int fibonacciIterativo(int termo);
 int fibonacciRecursivo(int termo);
+int fibonaccitRecursivoCauda(int termo, int penultimo, int ultimo);
 
 
 //Funções
@@ -27,11 +28,12 @@ int main(void) {
 	//Fatorial
 	//printf("\nFatorial Iterativo - %d\n", fatorialIterativo(5));
 	//printf("\nFatorial Recursivo - %d\n", fatorialRecursivo(5));
-	printf("\nFatorial Recursivo - %d\n", fatorialRecursivoCauda(5, 1));
+	//printf("\nFatorial Recursivo - %d\n", fatorialRecursivoCauda(5, 1));
 
 	//Fibonacci
 //	printf("\nFibonacci Iterativo - %d\n", fibonacciIterativo(50));
 //	printf("\nFibonacci Recursivo - %d\n", fibonacciRecursivo(50));
+	printf("\nFibonacci Recursivo Cauda - %d\n", fibonaccitRecursivoCauda(50, 0, 1));
 
 	return EXIT_SUCCESS;
 }
@@ -76,6 +78,14 @@ int fibonacciIterativo(int termo){
 	}
 
 	return soma;
+}
+
+int fibonaccitRecursivoCauda(int termo, int penultimo, int ultimo){
+	if (termo == 1){
+		return penultimo;
+	} else {
+		return fibonaccitRecursivoCauda(termo-1, ultimo, penultimo + ultimo);
+	}
 }
 
 int fibonacciRecursivo(int termo){
